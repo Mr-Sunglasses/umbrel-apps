@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  unifi-network-application:
+    image: lscr.io/linuxserver/unifi-network-application:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - MONGO_USER=unifi
+      - MONGO_PASS=pass
+      - MONGO_HOST=unifi_unifi-db_1
+      - MONGO_PORT=27017
+      - MONGO_DBNAME=unifi
+      - MONGO_AUTHSOURCE=admin
+      - MEM_LIMIT=1024 #optional
+      - MEM_STARTUP=1024 #optional
+      - MONGO_TLS= #optional
+    volumes:
+      -  ${APP_DATA_DIR}/data/config:/config
+    ports:
+      - 8843:8443
+      - 3478:3478/udp
+      - 10001:10001/udp
+    restart: on-failure
+
+  unifi-db:
+    image: docker.io/mongo:noble@sha256:9f98cd2c05abfef5c4fdfa8ea668b09ab9a7c23226d6b84cabfed035f01403c9
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_USER=unifi
+      - MONGO_PASS=pass
+      - MONGO_DBNAME=unifi
+      - MONGO_AUTHSOURCE=admin
+    volumes:
+      -  ${APP_DATA_DIR}/data/db:/data/db
+      - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh:ro
+    restart: on-failure
