@@ -1,0 +1,43 @@
+manifestVersion: 1
+id: dokuwiki
+category: files
+name: DokuWiki
+version: "2025-05-14b"
+tagline: An Open Source Wiki Engine
+description: >-
+  DokuWiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax.
+  The ease of maintenance, backup and integration makes it an administrator's favorite.
+  Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.
+  
+  
+  Why DokuWiki?
+
+  
+  DokuWiki is a popular choice when choosing a Wiki software and has many advantages over similar software.
+  
+  
+  Features:
+    - Easy to install and use
+    - Low system requirements
+    - Built-in Access Control Lists
+    - Large variety of extensions
+    - Over 50 languages supported
+    - Device independent
+    - Open Source
+developer: dokuwiki
+website: https://www.dokuwiki.org/dokuwiki
+repo: https://github.com/dokuwiki
+support: https://github.com/dokuwiki/issues
+port: 5350
+submitter: Kanishk Pachauri
+submission: https://github.com/getumbrel/umbrel-apps/pull/4024
+releaseNotes: ""
+dependencies: []
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+permissions: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

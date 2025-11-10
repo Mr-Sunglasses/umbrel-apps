@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: dokuwiki_web_1
+      APP_PORT: "80"
+
+  web:
+    image: linuxserver/dokuwiki:version-2025-05-14b@sha256:62033c4734bd0c51c518099caef8ce16b14243ff06b782832e38085e94e1a91b
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
